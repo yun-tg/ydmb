@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    background-color: #f8f9fa;
 }
 
 .container {
@@ -13,7 +14,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -21,6 +22,19 @@ body {
 .sidebar h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: #999;
 }
 
 .sidebar .menu {
@@ -35,6 +49,7 @@ body {
 .sidebar .menu a {
     text-decoration: none;
     color: #333;
+    font-size: 16px;
 }
 
 .sidebar .menu ul {
@@ -50,6 +65,7 @@ body {
 .content h2 {
     font-size: 28px;
     color: #333;
+    margin-top: 20px;
 }
 
 .content section {
@@ -59,4 +75,28 @@ body {
 .content p {
     font-size: 16px;
     line-height: 1.6;
+}
+
+.content .banner {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.content .screenshot {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+
+.sidebar .menu a:hover {
+    color: #007bff;
+}
+
+.sidebar .menu ul.active {
+    display: block;
+}
+
+.sidebar .menu ul {
+    display: none;
 }
