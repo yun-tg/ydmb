@@ -1,286 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云端漫步-TG云控</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-  <style>
-    /* 全局样式 */
-    body {
-      display: flex;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      height: 100vh;
-    }
-
-    /* 进度条样式 */
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      width: 0%;
-      z-index: 9999;
-    }
-
-    /* 返回顶部按钮 */
-    #back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #0072ff;
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      font-size: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s ease;
-    }
-
-    #back-to-top:hover {
-      background: #005edb;
-    }
-
-    /* 左侧菜单样式 */
-    .sidebar {
-      width: 260px;
-      background: #ffffff;
-      border-right: 1px solid #eaeaea;
-      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      padding-top: 20px;
-      overflow-y: auto;
-    }
-
-    /* 菜单标题 */
-    .app-name-link {
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      font-size: 18px;
-      color: #0072ff;
-      padding: 20px;
-      border-bottom: 1px solid #f5f7fb;
-    }
-
-    .app-name-link svg {
-      width: 25px;
-      margin-right: 10px;
-    }
-
-    /* 菜单项 */
-    .sidebar-nav > ul {
-      padding: 0;
-      margin-top: 0;
-    }
-
-    .sidebar-nav > ul > li {
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #f5f7fb;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .sidebar-nav > ul > li:hover {
-      background-color: #0072ff;
-      color: white;
-      border-radius: 6px;
-    }
-
-    /* 子菜单 */
-    .sidebar-nav > ul > li > ul {
-      list-style: none;
-      padding-left: 20px;
-      display: none;
-    }
-
-    .sidebar-nav > ul > li.open > ul {
-      display: block;
-    }
-
-    /* 高亮效果 */
-    .sidebar-nav > ul > li.active > a {
-      color: white;
-      background-color: #0072ff;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    /* 右侧内容区域 */
-    .content {
-      margin-left: 260px;
-      flex: 1;
-      padding: 20px;
-      overflow: hidden;
-    }
-
-    /* 内容标题 */
-    .content h1 {
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    /* 轮播图样式 */
-    .carousel {
-      width: 100%;
-      display: flex;
-      overflow: hidden;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    /* 横向滚动效果 */
-    .carousel-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    /* 动画和进度 */
-    .carousel-wrapper > .arrow-left,
-    .carousel-wrapper > .arrow-right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 30px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云端漫步 - TG 云控教程</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<button id="back-to-top">↑</button>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <h2>云端漫步</h2>
+            <p>官方完整使用教程</p>
+            <ul class="menu">
+                <li><a href="#section1">快速入门</a></li>
+                <li><a href="#section2">账号管理</a>
+                    <ul>
+                        <li><a href="#subsection2-1">导入账号</a></li>
+                        <li><a href="#subsection2-2">批量导入</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section3">分组管理</a></li>
+            </ul>
+        </div>
 
-<!-- 左侧菜单 -->
-<div class="sidebar">
-  <div class="app-name-link">
-    <svg viewBox="0 0 24 24" fill="#0072ff" width="25" height="25"><path d="M9.04 15.54L8.9 19.95c.4 0 .57-.17.78-.37l1.87-1.8 3.87 2.83c.71.39 1.21.19 1.39-.66l2.52-11.81c.22-1.02-.37-1.42-1.06-1.16L2.67 9.48c-1 .39-.99.94-.17 1.2l4.7 1.47 10.9-6.86c.51-.31.98-.14.6.17"/></svg>
-    云端漫步-TG云控
-  </div>
+        <!-- 内容区域 -->
+        <div class="content">
+            <section id="section1">
+                <h2>快速入门</h2>
+                <p>内容介绍...</p>
+            </section>
 
-  <div class="sidebar-nav">
-    <ul>
-      <li>
-        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">1. 快速入门</a>
-        <ul>
-          <li><a href="tutorials/install.md">软件安装与授权</a></li>
-          <li><a href="tutorials/features.md">配置与使用</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">2. 账号管理</a>
-        <ul>
-          <li><a href="tutorials/faq.md">常见问题</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
+            <section id="section2">
+                <h2>账号管理</h2>
+                <p>介绍账号管理的功能。</p>
 
-<!-- 右侧内容区域 -->
-<div class="content" id="app">
-  <div class="banner">
-    <h1>快速入门教程</h1>
-    <p>帮助您快速掌握 TG 云控的基本使用方法。</p>
-  </div>
+                <div id="subsection2-1">
+                    <h3>导入账号</h3>
+                    <p>导入账号的操作说明...</p>
+                </div>
 
-  <div class="carousel-wrapper">
-    <div class="arrow-left" onclick="prevSlide()">&#8249;</div>
-    <div class="carousel">
-      <img src="image1.jpg" alt="教程图片1">
-      <img src="image2.jpg" alt="教程图片2">
-      <img src="image3.jpg" alt="教程图片3">
+                <div id="subsection2-2">
+                    <h3>批量导入</h3>
+                    <p>批量导入的操作说明...</p>
+                </div>
+            </section>
+
+            <section id="section3">
+                <h2>分组管理</h2>
+                <p>分组管理的详细介绍...</p>
+            </section>
+        </div>
     </div>
-    <div class="arrow-right" onclick="nextSlide()">&#8250;</div>
-  </div>
-</div>
 
-<script>
-  window.$docsify = {
-    name: "云端漫步-TG云控",
-    loadSidebar: true,
-    subMaxLevel: 2,
-    auto2top: true,
-    homepage: "README.md",
-    search: "auto",
-    sidebar: 'auto'
-  };
-
-  // 切换子菜单
-  function toggleSubMenu(menu) {
-    menu.parentElement.classList.toggle("open");
-  }
-
-  // 返回顶部按钮
-  window.addEventListener("scroll", function() {
-    let btn = document.getElementById("back-to-top");
-    if (document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  });
-
-  // 滚动到顶部
-  document.getElementById("back-to-top").onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  };
-
-  // 图片轮播功能
-  let currentSlide = 0;
-  const images = document.querySelectorAll(".carousel img");
-
-  function showSlide(index) {
-    if (index >= images.length) currentSlide = 0;
-    if (index < 0) currentSlide = images.length - 1;
-    images.forEach((img, i) => {
-      img.style.transform = `translateX(-${currentSlide * 100}%)`;
-    });
-  }
-
-  function nextSlide() {
-    currentSlide++;
-    showSlide(currentSlide);
-  }
-
-  function prevSlide() {
-    currentSlide--;
-    showSlide(currentSlide);
-  }
-
-  // 初始化轮播
-  showSlide(currentSlide);
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-
+    <script src="assets/scripts.js"></script>
 </body>
 </html>
