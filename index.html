@@ -6,95 +6,14 @@
   <title>云端漫步-TG云控</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
   <style>
+    /* 全局样式 */
     body {
+      display: flex;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
       margin: 0;
-      padding: 0;
-      display: flex;
-      min-height: 100vh;
     }
 
-    /* ===== 左侧菜单 ===== */
-    .sidebar {
-      width: 280px;
-      background: #ffffff;
-      border-right: 1px solid #eaeaea;
-      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      padding-top: 20px;
-      overflow-y: auto;
-    }
-
-    .sidebar-nav > ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0;
-    }
-
-    .sidebar-nav > ul > li {
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #f5f7fb;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .sidebar-nav > ul > li:hover {
-      background-color: #0072ff;
-      color: white;
-      border-radius: 6px;
-    }
-
-    .sidebar-nav > ul > li > a {
-      font-size: 16px;
-      font-weight: 600;
-      color: #333;
-      text-decoration: none;
-      width: 100%;
-    }
-
-    /* === 子菜单 === */
-    .sidebar-nav > ul > li > ul {
-      list-style: none;
-      padding-left: 20px;
-      display: none;
-    }
-
-    .sidebar-nav > ul > li.open > ul {
-      display: block;
-    }
-
-    /* === 菜单项的图标 === */
-    .sidebar-nav > ul > li > a::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background-color: #0072ff;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-
-    /* === 当前高亮效果 === */
-    .sidebar-nav > ul > li.active > a {
-      color: white;
-      background-color: #0072ff;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    /* ===== 右侧内容区域 ===== */
-    .content {
-      margin-left: 280px;
-      flex: 1;
-      padding: 20px;
-      overflow: hidden;
-    }
-
+    /* 进度条样式 */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -105,6 +24,7 @@
       z-index: 9999;
     }
 
+    /* 返回顶部按钮 */
     #back-to-top {
       position: fixed;
       bottom: 30px;
@@ -125,22 +45,131 @@
       background: #005edb;
     }
 
-    /* === 顶部渐变横幅 === */
-    .banner {
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      color: white;
-      padding: 40px;
-      border-radius: 12px;
-      margin-bottom: 30px;
+    /* 左侧菜单样式 */
+    .sidebar {
+      width: 280px;
+      background: #ffffff;
+      border-right: 1px solid #eaeaea;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      padding-top: 20px;
+      overflow-y: auto;
     }
 
-    .banner h1 {
-      font-size: 36px;
+    /* 菜单标题 */
+    .app-name-link {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #0072ff;
+      padding: 20px;
+      border-bottom: 1px solid #f5f7fb;
+    }
+
+    .app-name-link svg {
+      width: 25px;
+      margin-right: 10px;
+    }
+
+    /* 菜单项 */
+    .sidebar-nav > ul {
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .sidebar-nav > ul > li {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f5f7fb;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar-nav > ul > li:hover {
+      background-color: #0072ff;
+      color: white;
+      border-radius: 6px;
+    }
+
+    /* 子菜单 */
+    .sidebar-nav > ul > li > ul {
+      list-style: none;
+      padding-left: 20px;
+      display: none;
+    }
+
+    .sidebar-nav > ul > li.open > ul {
+      display: block;
+    }
+
+    /* 高亮效果 */
+    .sidebar-nav > ul > li.active > a {
+      color: white;
+      background-color: #0072ff;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    /* 右侧内容区域 */
+    .content {
+      margin-left: 280px;
+      flex: 1;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* 内容标题 */
+    .content h1 {
+      font-size: 32px;
       font-weight: bold;
     }
 
-    .banner p {
-      font-size: 16px;
+    /* 轮播图样式 */
+    .carousel {
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* 横向滚动效果 */
+    .carousel-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* 动画和进度 */
+    .carousel-wrapper > .arrow-left,
+    .carousel-wrapper > .arrow-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
     }
   </style>
 </head>
@@ -148,35 +177,50 @@
 
 <div id="progress-bar"></div>
 <button id="back-to-top">↑</button>
+
+<!-- 左侧菜单 -->
 <div class="sidebar">
   <div class="app-name-link">
-    <svg viewBox="0 0 24 24" fill="#ffffff" width="25" height="25"><path d="M9.04 15.54L8.9 19.95c.4 0 .57-.17.78-.37l1.87-1.8 3.87 2.83c.71.39 1.21.19 1.39-.66l2.52-11.81c.22-1.02-.37-1.42-1.06-1.16L2.67 9.48c-1 .39-.99.94-.17 1.2l4.7 1.47 10.9-6.86c.51-.31.98-.14.6.17"/></svg>
+    <svg viewBox="0 0 24 24" fill="#0072ff" width="25" height="25"><path d="M9.04 15.54L8.9 19.95c.4 0 .57-.17.78-.37l1.87-1.8 3.87 2.83c.71.39 1.21.19 1.39-.66l2.52-11.81c.22-1.02-.37-1.42-1.06-1.16L2.67 9.48c-1 .39-.99.94-.17 1.2l4.7 1.47 10.9-6.86c.51-.31.98-.14.6.17"/></svg>
     云端漫步-TG云控
   </div>
-  <div class="app-subtitle">官方完整使用教程</div>
 
   <div class="sidebar-nav">
     <ul>
       <li>
-        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">安装教程</a>
+        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">1. 快速入门</a>
         <ul>
-          <li><a href="tutorials/install.md">如何安装</a></li>
-          <li><a href="tutorials/features.md">安装后配置</a></li>
+          <li><a href="tutorials/install.md">软件安装与授权</a></li>
+          <li><a href="tutorials/features.md">配置与使用</a></li>
         </ul>
       </li>
       <li>
-        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">常见问题</a>
+        <a href="javascript:void(0)" onclick="toggleSubMenu(this)">2. 账号管理</a>
         <ul>
-          <li><a href="tutorials/faq.md">常见问题1</a></li>
-          <li><a href="tutorials/faq.md">常见问题2</a></li>
+          <li><a href="tutorials/faq.md">常见问题</a></li>
         </ul>
       </li>
-      <li><a href="tutorials/features.md">功能介绍</a></li>
     </ul>
   </div>
 </div>
 
-<div class="content" id="app"></div>
+<!-- 右侧内容区域 -->
+<div class="content" id="app">
+  <div class="banner">
+    <h1>快速入门教程</h1>
+    <p>帮助您快速掌握 TG 云控的基本使用方法。</p>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="arrow-left" onclick="prevSlide()">&#8249;</div>
+    <div class="carousel">
+      <img src="image1.jpg" alt="教程图片1">
+      <img src="image2.jpg" alt="教程图片2">
+      <img src="image3.jpg" alt="教程图片3">
+    </div>
+    <div class="arrow-right" onclick="nextSlide()">&#8250;</div>
+  </div>
+</div>
 
 <script>
   window.$docsify = {
@@ -189,28 +233,50 @@
     sidebar: 'auto'
   };
 
+  // 切换子菜单
   function toggleSubMenu(menu) {
     menu.parentElement.classList.toggle("open");
   }
 
+  // 返回顶部按钮
   window.addEventListener("scroll", function() {
-    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = (scrollTop / scrollHeight) * 100;
-    document.getElementById("progress-bar").style.width = progress + "%";
-  });
-
-  let btn = document.getElementById("back-to-top");
-  window.addEventListener("scroll", function() {
+    let btn = document.getElementById("back-to-top");
     if (document.documentElement.scrollTop > 300) {
       btn.style.display = "block";
     } else {
       btn.style.display = "none";
     }
   });
-  btn.onclick = function() {
+
+  // 滚动到顶部
+  document.getElementById("back-to-top").onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
   };
+
+  // 图片轮播功能
+  let currentSlide = 0;
+  const images = document.querySelectorAll(".carousel img");
+
+  function showSlide(index) {
+    if (index >= images.length) currentSlide = 0;
+    if (index < 0) currentSlide = images.length - 1;
+    images.forEach((img, i) => {
+      img.style.transform = `translateX(-${currentSlide * 100}%)`;
+    });
+  }
+
+  function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+  }
+
+  // 初始化轮播
+  showSlide(currentSlide);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
