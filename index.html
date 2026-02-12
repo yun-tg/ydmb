@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +10,7 @@
       font-family: Arial, sans-serif;
       background: #f5f7fb;
     }
+
     #progress-bar {
       position: fixed;
       top: 0;
@@ -21,108 +21,122 @@
       z-index: 9999;
     }
 
-  /* ===== 顶部进度条 ===== */
-  #progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(90deg,#00c6ff,#0072ff);
-    width: 0%;
-    z-index: 9999;
-  }
-
-  /* ===== 固定左侧菜单宽度 ===== */
-  .sidebar {
-    width: 270px !important;
-    background: #ffffff;
-    border-right: 1px solid #eee;
-    box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .content {
-    left: 270px !important;
-  }
-
-  /* ===== 网站标题 ===== */
-  .app-name-link {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 20px;
-    color: #0072ff;
-  }
-
-  .app-name-link svg {
-    width: 25px;
-    margin-right: 10px;
-  }
-
-  .app-subtitle {
-    font-size: 14px;
-    color: #888;
-    margin-top: 4px;
-  }
-
-  /* ===== 横幅 ===== */
-  .banner {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: white;
-    padding: 40px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    transition: background 1.5s ease;
-  }
-
-  .banner h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: 600;
-  }
-
-  .banner p {
-    font-size: 16px;
-  }
-
-  /* ===== 表格样式 ===== */
-  .markdown-section table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  .markdown-section table td,
-  .markdown-section table th {
-    border: 1px solid #eaeaea;
-    padding: 12px;
-  }
-
-  .markdown-section table th {
-    background: #f8f9fa;
-  }
-
-  <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云端漫步-TG云控</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
+    /* ===== 左侧菜单样式 ===== */
+    .sidebar {
+      width: 260px !important;
+      background: #ffffff;
+      border-right: 1px solid #eaeaea;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    #progress-bar {
+
+    .sidebar-nav > ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-nav > ul > li {
+      list-style: none;
+    }
+
+    /* ===== 主菜单项样式 ===== */
+    .sidebar-nav > ul > li > a {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 20px;
+      color: #333;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-nav > ul > li > a:hover {
+      background: #0072ff;
+      color: white;
+      border-radius: 4px;
+    }
+
+    /* ===== 子菜单项样式 ===== */
+    .sidebar-nav ul li ul li a {
+      font-size: 14px;
+      padding: 10px 30px;
+      color: #666;
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-nav ul li ul li a:hover {
+      background: #f0f8ff;
+      color: #0072ff;
+      border-radius: 4px;
+    }
+
+    /* ===== 菜单项悬浮阴影 ===== */
+    .sidebar-nav > ul > li:hover {
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== 展开箭头动画 ===== */
+    .sidebar-nav > ul > li > a::after {
+      content: " ▸";
+      float: right;
+      transition: 0.3s;
+    }
+
+    .sidebar-nav > ul > li.open > a::after {
+      transform: rotate(90deg);
+    }
+
+    /* ===== 当前高亮效果 ===== */
+    .sidebar-nav ul li.active > a {
+      color: #0072ff !important;
+      font-weight: bold;
+      background: rgba(0, 114, 255, 0.1);
+      border-radius: 6px;
+    }
+
+    /* ===== 左侧菜单标题样式 ===== */
+    .app-name-link {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #0072ff;
+      padding: 20px;
+      border-bottom: 1px solid #f5f7fb;
+    }
+
+    .app-name-link svg {
+      width: 25px;
+      margin-right: 10px;
+    }
+
+    .app-subtitle {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* ===== 进度条样式 ===== */
+    #back-to-top {
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      width: 0%;
-      z-index: 9999;
+      bottom: 30px;
+      right: 30px;
+      background: #0072ff;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease;
     }
-    /* 其他样式与之前相同 */
+
+    #back-to-top:hover {
+      background: #005edb;
+    }
   </style>
 </head>
 <body>
@@ -170,4 +184,3 @@
 
 </body>
 </html>
-
