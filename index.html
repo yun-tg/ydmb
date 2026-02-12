@@ -4,84 +4,132 @@
   <meta charset="UTF-8">
   <title>云端漫步-TG云控</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 主题 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
-<style>
 
-body {
-  background: #f5f7fb;
-}
+  <style>
 
-/* 左侧菜单整体 */
-.sidebar {
-  background: #ffffff;
-  border-right: 1px solid #eee;
-}
+  body {
+    background: #f5f7fb;
+  }
 
-/* 主菜单样式 */
-.sidebar-nav > ul > li > a {
-  font-weight: 600;
-  font-size: 15px;
-}
+  /* 左侧整体 */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid #eee;
+  }
 
-/* 子菜单 */
-.sidebar-nav ul li ul li a {
-  font-size: 14px;
-  color: #666;
-}
+  /* 网站标题 */
+  .app-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-/* 展开箭头 */
-.sidebar-nav > ul > li > a::after {
-  content: "▸";
-  float: right;
-  transition: 0.3s;
-}
+  .app-name small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+  }
 
-.sidebar-nav > ul > li.open > a::after {
-  transform: rotate(90deg);
-}
+  /* 主菜单 */
+  .sidebar-nav > ul > li > a {
+    font-weight: 600;
+    font-size: 15px;
+  }
 
-/* 右侧内容卡片 */
-.markdown-section {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-}
+  /* 子菜单 */
+  .sidebar-nav ul li ul li a {
+    font-size: 14px;
+    color: #666;
+  }
 
-/* 标题美化 */
-.markdown-section h2 {
-  border-left: 4px solid #007aff;
-  padding-left: 10px;
-}
+  /* 展开箭头 */
+  .sidebar-nav > ul > li > a::after {
+    content: "▸";
+    float: right;
+    transition: 0.3s;
+  }
 
-/* 表格美化 */
-.markdown-section table {
-  border-collapse: collapse;
-  width: 100%;
-}
+  .sidebar-nav > ul > li.open > a::after {
+    transform: rotate(90deg);
+  }
 
-.markdown-section table td,
-.markdown-section table th {
-  border: 1px solid #eaeaea;
-  padding: 12px;
-}
+  /* 右侧内容卡片 */
+  .markdown-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  }
 
-</style>
+  /* 二级标题美化 */
+  .markdown-section h2 {
+    border-left: 4px solid #007aff;
+    padding-left: 10px;
+    margin-top: 30px;
+  }
 
+  /* 表格美化 */
+  .markdown-section table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .markdown-section table td,
+  .markdown-section table th {
+    border: 1px solid #eaeaea;
+    padding: 12px;
+  }
+
+  .markdown-section table th {
+    background: #f8f9fa;
+  }
+
+  /* 横幅 */
+  .banner {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+
+  </style>
 </head>
+
 <body>
   <div id="app"></div>
 
   <script>
     window.$docsify = {
-  name: '🚀 云端漫步-TG云控',
-  loadSidebar: '_sidebar.md',
-  homepage: 'README.md',
-  subMaxLevel: 0,
-  auto2top: true
-}
+      name: '🚀 云端漫步-TG云控',
+      repo: '',
+      loadSidebar: '_sidebar.md',
+      homepage: 'README.md',
+      subMaxLevel: 0,
+      auto2top: true,
+      search: 'auto'
+    }
   </script>
 
+  <!-- Docsify -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <!-- 搜索插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
 </body>
 </html>
