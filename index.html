@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>云端漫步-TG云控</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <style>
+    .sidebar .app-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .sidebar .app-name small {
+      display: block;
+      font-size: 12px;
+      color: #999;
+    }
+    .banner {
+      background: linear-gradient(90deg,#0088cc,#005f99);
+      color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .feature-table {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom:20px;
+    }
+    .doc-box{
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom:20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '✈ 云端漫步-TG云控 <br><small>官方完整使用教程</small>',
+      loadSidebar: true,
+      subMaxLevel: 1,
+      auto2top: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+</body>
+</html>
