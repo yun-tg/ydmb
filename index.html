@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>云端漫步-TG云控</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>云端漫步-TG云控</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
-
   <style>
-  body {
-    background: #f5f7fb;
-    font-family: 'Arial', sans-serif;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+    }
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      width: 0%;
+      z-index: 9999;
+    }
 
   /* ===== 顶部进度条 ===== */
   #progress-bar {
@@ -93,9 +101,30 @@
     background: #f8f9fa;
   }
 
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云端漫步-TG云控</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+    }
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      width: 0%;
+      z-index: 9999;
+    }
+    /* 其他样式与之前相同 */
   </style>
 </head>
-
 <body>
 
 <div id="progress-bar"></div>
@@ -103,77 +132,42 @@
 <div id="app"></div>
 
 <script>
-window.$docsify = {
-  name: `
-  <div>
-    <div class="app-name-link">
-      <svg viewBox="0 0 24 24" fill="#0072ff">
-        <path d="M9.04 15.54L8.9 19.95c.4 0 .57-.17.78-.37l1.87-1.8 3.87 2.83c.71.39 1.21.19 1.39-.66l2.52-11.81c.22-1.02-.37-1.42-1.06-1.16L2.67 9.48c-1 .39-.99.94-.17 1.2l4.7 1.47 10.9-6.86c.51-.31.98-.14.6.17"/>
-      </svg>
-      云端漫步-TG云控
-    </div>
-    <div class="app-subtitle">官方完整使用教程</div>
-  </div>
-  `,
-  loadSidebar: '_sidebar.md',
-  homepage: 'README.md',
-  subMaxLevel: 0,
-  auto2top: true
-}
+  window.$docsify = {
+    name: "云端漫步-TG云控",
+    loadSidebar: true,        // 自动加载侧边栏
+    subMaxLevel: 2,           // 控制菜单深度
+    auto2top: true,           // 启用自动回到顶部
+    homepage: "README.md",    // 首页路径
+    search: "auto",           // 启用搜索功能
+    loadNavbar: true,         // 启用顶部导航栏
+    sidebar: 'auto'           // 自动生成侧边栏
+  };
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-
 <script>
-/* ===== 滚动进度条 ===== */
-window.addEventListener("scroll", function() {
-  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let progress = (scrollTop / scrollHeight) * 100;
-  document.getElementById("progress-bar").style.width = progress + "%";
-});
+  // 进度条功能
+  window.addEventListener("scroll", function() {
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById("progress-bar").style.width = progress + "%";
+  });
 
-/* ===== 返回顶部按钮 ===== */
-let btn = document.getElementById("back-to-top");
-
-window.addEventListener("scroll", function() {
-  if (document.documentElement.scrollTop > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-});
-
-btn.onclick = function() {
-  window.scrollTo({top: 0, behavior: 'smooth'});
-};
-
-/* ===== 主菜单点击自动展开 ===== */
-document.addEventListener("click", function(e){
-  let el = e.target;
-  if(el.parentElement && el.parentElement.parentElement && 
-     el.parentElement.parentElement.classList.contains("sidebar-nav")) {
-    el.parentElement.classList.toggle("open");
-  }
-});
-
-/* ===== 显示横幅和表格，只在首页 ===== */
-if (window.location.pathname === '/ydmb/README.md') {
-  const bannerHtml = `
-    <div class="banner">
-      <h1>账号系统</h1>
-      <p>官方完整使用教程</p>
-    </div>
-    <table>
-      <tr><th>功能</th><th>说明</th></tr>
-      <tr><td>注册账号</td><td>快速创建TG账号</td></tr>
-      <tr><td>登录账号</td><td>安全登录管理</td></tr>
-    </table>
-  `;
-  
-  document.querySelector(".content").insertAdjacentHTML('afterbegin', bannerHtml);
-}
+  // 返回顶部按钮功能
+  let btn = document.getElementById("back-to-top");
+  window.addEventListener("scroll", function() {
+    if (document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+  btn.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
 </script>
 
 </body>
 </html>
+
