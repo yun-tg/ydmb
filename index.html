@@ -4,53 +4,68 @@
   <meta charset="UTF-8">
   <title>云端漫步-TG云控</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+
   <style>
-    .sidebar .app-name {
-      font-size: 20px;
-      font-weight: bold;
+    .app-name-link img {
+      width: 22px;
+      margin-right: 8px;
+      vertical-align: middle;
     }
-    .sidebar .app-name small {
-      display: block;
-      font-size: 12px;
-      color: #999;
+
+    .sidebar .sidebar-nav > ul > li > a::after {
+      content: " ▸";
+      float: right;
+      transition: 0.3s;
     }
+
+    .sidebar .sidebar-nav > ul > li.open > a::after {
+      transform: rotate(90deg);
+    }
+
     .banner {
-      background: linear-gradient(90deg,#0088cc,#005f99);
-      color: #fff;
-      padding: 30px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 40px;
       border-radius: 10px;
       margin-bottom: 20px;
     }
+
     .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    .feature-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+    }
+
+    .content-box {
       background: #fff;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom:20px;
-    }
-    .doc-box{
-      background:#fff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom:20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
     }
   </style>
+
 </head>
+
 <body>
   <div id="app"></div>
+
   <script>
     window.$docsify = {
-      name: '✈ 云端漫步-TG云控 <br><small>官方完整使用教程</small>',
+      name: '🚀 云端漫步-TG云控',
+      subMaxLevel: 2,
       loadSidebar: true,
-      subMaxLevel: 1,
       auto2top: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
     }
   </script>
+
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
